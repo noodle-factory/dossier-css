@@ -7,7 +7,7 @@ Shared dossier stylesheet for Noodle Factory technical artifacts.
 Pinned jsDelivr URL:
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/noodle-factory/dossier-css@v2.0.0/dossier.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/noodle-factory/dossier-css@v2.1.0/dossier.css">
 ```
 
 Use pinned tags in generated artifacts so existing documents stay stable when the stylesheet changes.

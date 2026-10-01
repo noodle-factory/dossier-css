@@ -222,7 +222,7 @@ p.deck {
 
 /* ---------- Sections ---------- */
 
-section { padding: 44px 0 8px; border-top: 1px solid var(--line); scroll-margin-top: 16px; }
+section { padding: 44px 0 8px; border-top: 1px solid var(--line); scroll-margin-top: 16px; max-width: 100%; }
 section:first-of-type { border-top: none; }
 
 section > .s-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 6px; }
@@ -264,6 +264,7 @@ section p.s-intro { color: var(--ink-soft); max-width: 70ch; margin: 10px 0 24px
 .grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
 .grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
 @media (max-width: 760px) { .grid.cols-2, .grid.cols-3 { grid-template-columns: 1fr; } }
+.grid > * { min-width: 0; }
 
 .card {
   background: var(--surface);
@@ -271,11 +272,33 @@ section p.s-intro { color: var(--ink-soft); max-width: 70ch; margin: 10px 0 24px
   border-radius: 10px;
   padding: 18px 20px;
   box-shadow: var(--shadow);
+  min-width: 0;
 }
 
 .card h3 { font-size: 15px; margin: 0 0 6px; display: flex; align-items: center; gap: 8px; }
 .card p { margin: 0; color: var(--ink-soft); font-size: 13.8px; }
 .card .card-foot { margin-top: 10px; font-size: 12px; color: var(--ink-faint); font-family: var(--font-mono); }
+
+.cards-scroll {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding: 4px 2px 14px;
+  margin: 16px 0;
+  scrollbar-width: thin;
+}
+
+.cards-scroll > .card {
+  flex: 0 0 650px;
+  min-width: 650px;
+}
+
+@media (max-width: 720px) {
+  .cards-scroll > .card {
+    flex: 0 0 85vw;
+    min-width: 280px;
+  }
+}
 
 /* ---------- Badges ---------- */
 
@@ -366,7 +389,8 @@ pre.code, .code-block {
   background: var(--surface-2);
   border-radius: 5px;
   padding: 1px 6px;
-  white-space: nowrap;
+  white-space: normal;
+  word-break: break-word;
 }
 
 footer {
